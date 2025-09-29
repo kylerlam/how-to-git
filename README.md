@@ -13,3 +13,14 @@ Updates were rejected because the tip of your current branch is behind
 
 `git push origin main`
 
+```linux
+# 假设远端有提交
+A - B - C   (origin/main)
+
+# 我本地也有提交
+A - B - D   (main)
+
+# git pull --rebase 后再推送可以保持线性
+A - B - C - D   (main)
+```
+
