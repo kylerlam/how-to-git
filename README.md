@@ -24,3 +24,61 @@ A - B - D   (main)
 A - B - C - D   (main)
 ```
 
+---
+
+## .git 突然消失
+
+```linux
+fatal: 'react/prjWithOrganized/.git' not recognized as a git repository
+```
+
+进入相关目录 `dir -force`
+
+- 如果没有 `.git`
+
+```linux
+git init
+git remote add origin <你的远程仓库地址>
+```
+
+- 如果有 `.git` 那可能是坏了
+
+```linux
+rmdir -force .git -recurse
+git init
+git remote add origin <你的远程仓库地址>
+```
+
+## 碰到某个文件怎么都加不进 git 版本控制里
+
+```linux
+  (commit or discard the untracked or modified content in submodules)
+        modified:   react/prjWithOrganized (untracked content)
+```
+
+是因为该文件路径是一个子模块.
+
+把它并入外层仓库（不当子模块）
+
+```linux
+# 1. cd 到 根目录并移除子模块配置
+git rm -r --cached react/prjWithOrganized
+
+# 2. 删除 .gitmodules
+rm .gitmodules
+
+# 3. 打开 .git/config , 有下面这段旧删掉
+[submodule "react/prjWithOrganized"]
+    path = react/prjWithOrganized
+    url = ...
+    
+# 4. 提交清理
+git commit -m "remove submodule prjWithOrganized"
+git push origin main
+
+# 5. 重新加入本地文件夹
+git add react/prjWithOrganized
+git commit -m "add prjWithOrganized as normal folder"
+git push origin main
+```
+
