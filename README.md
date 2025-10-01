@@ -82,3 +82,6 @@ git commit -m "add prjWithOrganized as normal folder"
 git push origin main
 ```
 
+## 代码改错了 一键回到当前 commit 的最初状态
+
+`git reset --hard`
