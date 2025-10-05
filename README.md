@@ -85,3 +85,23 @@ git push origin main
 ## 代码改错了 一键回到当前 commit 的最初状态
 
 `git reset --hard`
+
+## 改上一次 commit 信息
+
+```linux
+git commit --amend
+git push --force
+```
+
+## 在分支 fix bug 最后只合并一条 commit 到 main
+
+```linux
+git checkout main
+git merge --squash test-branch
+```
+
+
+
+## 多行 commit
+
+`git commit` (不加 `-m`)
