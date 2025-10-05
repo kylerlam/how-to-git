@@ -100,8 +100,18 @@ git checkout main
 git merge --squash test-branch
 ```
 
-
-
 ## 多行 commit
 
 `git commit` (不加 `-m`)
+
+## 在 dev 分支以最新状态继续开发
+
+```linux
+# 进入 dev 分支
+git checkout dev
+# 拉取远程 main 再合并 origin/main
+git pull origin main
+# 强制推送到远端 dev 分支
+git push -f origin dev
+```
+
