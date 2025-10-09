@@ -96,8 +96,10 @@ git push --force
 ## 在分支 fix bug 最后只合并一条 commit 到 main
 
 ```linux
-git checkout main
-git merge --squash test-branch
+git checkout main  # 进入要推送的 branch
+git merge --squash test-branch # 合并要加进来的 branch
+git commit  # 多行 commit
+git push
 ```
 
 ## 多行 commit
