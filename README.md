@@ -117,3 +117,19 @@ git pull origin main
 git push -f origin dev
 ```
 
+## 当前仓库功能完毕合并到 main 分支并保持线性
+
+- 当前仓库完工 需要把所有提交合并到主分支并
+
+```linux
+main:   A---B---C
+feature:         D---E---F
+rebase 后：
+main:   A---B---C---D'---E'---F'
+```
+
+```linux
+# 当前在 feature 分支
+git rebase main
+```
+
