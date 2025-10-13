@@ -98,13 +98,15 @@ git push --force
 ```linux
 git checkout main  # 进入要推送的 branch
 git merge --squash test-branch # 合并要加进来的 branch
-git commit  # 多行 commit
+git commit -m  # 多行 commit
 git push
 ```
 
-## 多行 commit
+## commit
 
-`git commit` (不加 `-m`)
+`git commit` (不加 `-m`): 会打开编辑器, 适合详细信息描述
+
+`git commit -m 'feat(login): add login form'`: GitHub上只显示一条 commit
 
 ## 在 dev 分支以最新状态继续开发
 
